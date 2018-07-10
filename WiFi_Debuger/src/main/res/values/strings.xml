@@ -1,9 +1,12 @@
 <resources>
     <string name="app_name">WiFiDebuger</string>
+
     <string name="usb_mode">当前是USB调试模式</string>
-    <string name="switch_2_wifi_mode">点击按钮切换到WiFi调试模式</string>
-    <string name="wifi_mode">当前是WiFi调试模式，端口号</string>
-    <string name="switch_2_usb_mode">点击按钮切换到USB调试模式</string>
+    <string name="wifi_mode">当前是WiFi调试模式</string>
+
     <string name="no_root_permission">没有获取Root权限，请到设置中给应用Root权限</string>
+
     <string name="switch_mode">点击按钮切换调试模式</string>
+    <string name="switch_2_wifi_mode">点击按钮切换到WiFi调试模式</string>
+    <string name="switch_2_usb_mode">点击按钮切换到USB调试模式</string>
 </resources>
