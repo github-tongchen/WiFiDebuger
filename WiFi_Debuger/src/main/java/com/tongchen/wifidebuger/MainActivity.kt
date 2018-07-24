@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initDebugState() {
-        val successMsg = ShellUtils.execCommand("getprop service.adb.tcp.port", true).successMsg
+        val successMsg = KotlinShellUtils.execCommand("getprop service.adb.tcp.port", true).successMsg
         //  空是重启手机后读取到的值，-1是自己切换后，退出重进读取到的值
         if (TextUtils.equals("", successMsg) || TextUtils.equals("-1", successMsg)) {
             mDebugType = -1
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun checkRootPermission(): Boolean {
-        val hasRoot = ShellUtils.checkRootPermission()
+        val hasRoot = KotlinShellUtils.checkRootPermission()
         if (!hasRoot) {
             tv_result.text = getString(R.string.no_root_permission)
             return false
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         cmdList.add("setprop service.adb.tcp.port 7777")
         cmdList.add("stop adbd")
         cmdList.add("start adbd")
-        val cmdResult = ShellUtils.execCommand(cmdList, true)
+        val cmdResult = KotlinShellUtils.execCommand(cmdList, true)
         if (cmdResult.result == 0) {
             mDebugType = 1
         } else {
@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         cmdList.add("setprop service.adb.tcp.port -1")
         cmdList.add("stop adbd")
         cmdList.add("start adbd")
-        val cmdResult = ShellUtils.execCommand(cmdList, true)
+        val cmdResult = KotlinShellUtils.execCommand(cmdList, true)
         if (cmdResult.result == 0) {
             mDebugType = -1
         } else {
